@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="RYL Studios: Premium Headshot & Portrait Photography in Atlanta. Specializing in editorial-style corporate, acting, and branding headshots.">
-<meta name="keywords" content="Atlanta Headshot Photographer, Corporate Portraits Atlanta, Acting Headshots Georgia, RYL Studios">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RYL Studios | Atlanta Photography</title>
+    <title>RYL Studios | Atlanta Headshot & Portrait Photography</title>
+    
+    <meta name="description" content="RYL Studios: Premium Headshot & Portrait Photography in Atlanta. Specializing in editorial-style corporate, acting, and branding headshots.">
+    <meta name="keywords" content="Atlanta Headshot Photographer, Corporate Portraits Atlanta, Acting Headshots Georgia, RYL Studios">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Optimized Grid for Portrait & Landscape */
-#gallery-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Fills the box */
-    object-position: center 20%; /* Prioritizes the "Headshot Zone" */
-    transition: transform 0.7s ease;
-}
-
-/* Mobile Tweak: Allow taller rows so portraits aren't squashed */
-@media (max-width: 768px) {
-    #gallery-grid {
-        grid-auto-rows: 450px; /* Makes the mobile images taller/editorial */
-        gap: 8px;
-    }
-}
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@200;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@200;400&display=swap');
         
         body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         .accent-gold { color: #d4af37; }
         .nav-blur { backdrop-filter: blur(15px); background: rgba(10, 10, 10, 0.85); }
 
-        /* LOGO STACK ANIMATION */
-        .logo-wrapper {
-            position: relative;
-            width: 220px; 
-            height: 90px;
-        }
-        .logo-wrapper img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* --- THE TRUE B&W TO COLOR LOGIC --- */
+        #gallery-grid img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            opacity: 0;
-            animation: logoStack 16s infinite;
+            object-fit: cover;
+            object-position: center 15%; /* Keeps faces in frame */
+            
+            /* Start: Full Black and White + Slightly Darker */
+            filter: grayscale(100%) brightness(80%); 
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: filter, transform;
         }
-        /* Sequential Fading */
+
+        /* Hover: Full Color + Full Brightness + Scale */
+        #gallery-grid .group:hover img {
+            filter: grayscale(0%) brightness(100%);
+            transform: scale(1.05);
+        }
+
+        /* Responsive Grid Fixes */
+        @media (max-width: 768px) {
+            #gallery-grid {
+                grid-template-columns: 1fr !important;
+                grid-auto-rows: 550px !important;
+                gap: 12px !important;
+            }
+            /* On mobile, we keep them B&W until they are tapped/scrolled */
+            .md\:col-span-2 { grid-column: span 1 !important; grid-row: span 1 !important; }
+        }
+
+        /* Logo Stack Animation */
+        .logo-wrapper { position: relative; width: 220px; height: 90px; }
+        .logo-wrapper img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: contain; opacity: 0; animation: logoStack 16s infinite;
+        }
         .logo-wrapper img:nth-child(1) { animation-delay: 0s; }
         .logo-wrapper img:nth-child(2) { animation-delay: 4s; }
         .logo-wrapper img:nth-child(3) { animation-delay: 8s; }
@@ -69,7 +74,6 @@
 
     <nav class="fixed w-full z-50 nav-blur border-b border-white/5 px-6 py-4">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            
             <a href="#" class="flex justify-center items-center">
                 <div class="logo-wrapper">
                     <img src="images/logo-color.png" alt="RYL Color">
@@ -78,13 +82,11 @@
                     <img src="images/logo-bw3.png" alt="RYL BW3">
                 </div>
             </a>
-
             <div class="flex space-x-12 text-[10px] uppercase tracking-[0.4em] font-light text-white/70">
-                <a href="https://rylstudios.shootproof.com" target="_blank" class="hover:text-amber-500 transition">The Collection</a>
+                <a href="https://rylstudios.shootproof.com" target="_blank" class="hover:text-amber-500 transition text-white">The Collection</a>
                 <a href="mailto:design@rylstudios.com?subject=Inquiry" class="hover:text-amber-500 transition font-medium text-white">Inquire</a>
             </div>
-
-            <a href="mailto:your-email@example.com" class="hidden md:block text-[10px] border border-white/20 px-8 py-2 hover:bg-white hover:text-black transition uppercase tracking-widest">Book Now</a>
+            <a href="mailto:design@rylstudios.com?subject=Booking" class="hidden md:block text-[10px] border border-white/20 px-8 py-2 hover:bg-white hover:text-black transition uppercase tracking-widest">Book Now</a>
         </div>
     </nav>
 
@@ -93,11 +95,10 @@
             <img src="http://s618425099.initial-website.com/s/img/emotionheader.jpg" class="w-full h-full object-cover opacity-40 scale-110" alt="Hero">
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]"></div>
         </div>
-        
         <div class="relative z-10 text-center px-6 max-w-5xl">
             <span class="accent-gold uppercase tracking-[1em] text-[10px] mb-6 block" data-aos="fade-down">Atlanta Photography Studio</span>
             <h1 class="text-5xl md:text-8xl mb-8 italic font-black leading-tight" data-aos="fade-up">
-                Capturing the <br> <span class="text-white">Unseen Moment.</span>
+                Capturing the <br> <span class="text-white text-7xl md:text-9xl tracking-tighter">Unseen Moment.</span>
             </h1>
             <p class="text-white/60 uppercase tracking-[0.4em] text-[10px] md:text-[12px] mb-10 max-w-2xl mx-auto leading-loose" data-aos="fade-up" data-aos-delay="200">
                 Editorial Aesthetics & Authentic Storytelling
@@ -111,7 +112,6 @@
             <p class="text-2xl md:text-5xl leading-[1.4] font-light italic text-gray-200" data-aos="fade-up" data-aos-delay="200">
                 "Where high-end vision meets <br> <span class="text-white font-bold">authentic connection.</span>"
             </p>
-            <div class="h-12 w-px bg-gold/30 mx-auto mt-12"></div>
         </div>
     </section>
 
@@ -130,25 +130,23 @@
     <script>
         AOS.init({ once: true, duration: 1000 });
         
-        // ONLY include your actual filenames here
         const myImages = [
-            'img-10.jpg','img-8.jpg','img-9.jpg','img-7.jpg','img-6.jpg','img-4.jpg','img-5.jpg','img-2.jpg','img-3.jpg','img.jpg','img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg', 'img6.jpg', 'img7.jpg',
+            'img-10.jpg','img-8.jpg','img-9.jpg','img-7.jpg','img-6.jpg','img-4.jpg','img-5.jpg',
+            'img-2.jpg','img-3.jpg','img1.jpg','img2.jpg','img3.jpg','img4.jpg',
+            'img5.jpg', 'img6.jpg', 'img7.jpg'
         ];
         
         const folder = 'portfolio/'; 
         const gallery = document.getElementById('gallery-grid');
 
         myImages.forEach((filename, index) => {
-    const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
-    const card = `
-        <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up">
-            <img src="${folder}${filename}" 
-                 alt="Professional Atlanta Headshot Photography by RYL Studios" 
-                 loading="lazy">
-            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all"></div>
-        </div>`;
-    gallery.innerHTML += card;
-});
+            const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
+            gallery.innerHTML += `
+                <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up">
+                    <img src="${folder}${filename}" 
+                         alt="Professional Atlanta Headshot Photography" 
+                         loading="lazy">
+                </div>`;
         });
     </script>
 </body>
