@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RYL Studios | Atlanta Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@200;400&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .accent-gold { color: #d4af37; }
+        .nav-blur { backdrop-filter: blur(15px); background: rgba(10, 10, 10, 0.85); }
+
+        /* LOGO STACK ANIMATION */
+        .logo-wrapper {
+            position: relative;
+            width: 220px; 
+            height: 90px;
+        }
+        .logo-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            animation: logoStack 16s infinite;
+        }
+        /* Sequential Fading */
+        .logo-wrapper img:nth-child(1) { animation-delay: 0s; }
+        .logo-wrapper img:nth-child(2) { animation-delay: 4s; }
+        .logo-wrapper img:nth-child(3) { animation-delay: 8s; }
+        .logo-wrapper img:nth-child(4) { animation-delay: 12s; }
+
+        @keyframes logoStack {
+            0%, 5%   { opacity: 0; }
+            10%, 25% { opacity: 1; }
+            30%, 100% { opacity: 0; }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 nav-blur border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <a href="#" class="flex justify-center items-center">
+                <div class="logo-wrapper">
+                    <img src="images/logo-color.png" alt="RYL Color">
+                    <img src="images/logo-bw.png" alt="RYL BW">
+                    <img src="images/logo-bw2.png" alt="RYL BW2">
+                    <img src="images/logo-bw3.png" alt="RYL BW3">
+                </div>
+            </a>
+
+            <div class="flex space-x-12 text-[10px] uppercase tracking-[0.4em] font-light text-white/70">
+                <a href="https://rylstudios.shootproof.com" target="_blank" class="hover:text-amber-500 transition">The Collection</a>
+                <a href="mailto:design@rylstudios.com?subject=Inquiry" class="hover:text-amber-500 transition font-medium text-white">Inquire</a>
+            </div>
+
+            <a href="mailto:your-email@example.com" class="hidden md:block text-[10px] border border-white/20 px-8 py-2 hover:bg-white hover:text-black transition uppercase tracking-widest">Book Now</a>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="http://s618425099.initial-website.com/s/img/emotionheader.jpg" class="w-full h-full object-cover opacity-40 scale-110" alt="Hero">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <span class="accent-gold uppercase tracking-[1em] text-[10px] mb-6 block" data-aos="fade-down">Atlanta Photography Studio</span>
+            <h1 class="text-5xl md:text-8xl mb-8 italic font-black leading-tight" data-aos="fade-up">
+                Capturing the <br> <span class="text-white">Unseen Moment.</span>
+            </h1>
+            <p class="text-white/60 uppercase tracking-[0.4em] text-[10px] md:text-[12px] mb-10 max-w-2xl mx-auto leading-loose" data-aos="fade-up" data-aos-delay="200">
+                Editorial Aesthetics & Authentic Storytelling
+            </p>
+        </div>
+    </section>
+
+    <section class="py-40 bg-[#0a0a0a]">
+        <div class="max-w-4xl mx-auto px-10 text-center">
+            <h3 class="accent-gold uppercase tracking-[0.5em] text-[10px] mb-12" data-aos="fade-up">The Philosophy</h3>
+            <p class="text-2xl md:text-5xl leading-[1.4] font-light italic text-gray-200" data-aos="fade-up" data-aos-delay="200">
+                "Where high-end vision meets <br> <span class="text-white font-bold">authentic connection.</span>"
+            </p>
+            <div class="h-12 w-px bg-gold/30 mx-auto mt-12"></div>
+        </div>
+    </section>
+
+    <section id="work" class="pb-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[350px]"></div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 text-center text-gray-700">
+        <p class="text-[9px] uppercase tracking-[0.6em] mb-4">&copy; 2026 RYL Studios</p>
+        <p class="text-[8px] uppercase tracking-[0.3em]">Atlanta &bull; Worldwide</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 1000 });
+        
+        // ONLY include your actual filenames here
+        const myImages = [
+            'img-10.jpg','img-8.jpg','img-9.jpg','img-7.jpg','img-6.jpg','img-4.jpg','img-5.jpg','img-2.jpg','img-3.jpg','img.jpg','img1.jpg','img2.jpg','img3.jpg','img4.jpg','img5.jpg', 'img6.jpg', 'img7.jpg',
+        ];
+        
+        const folder = 'portfolio/'; 
+        const gallery = document.getElementById('gallery-grid');
+
+        myImages.forEach((filename, index) => {
+            // Logic for large editorial tiles
+            const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
+            const card = `
+                <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up" data-aos-delay="${index * 50}">
+                    <img src="${folder}${filename}" 
+                         class="w-full h-full object-cover grayscale transition duration-1000 group-hover:grayscale-0 scale-105 group-hover:scale-100" 
+                         alt="RYL Portfolio">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700"></div>
+                </div>`;
+            gallery.innerHTML += card;
+        });
+    </script>
+</body>
+</html>
