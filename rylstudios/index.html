@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>RYL Studios | Best Headshot Photographer in Atlanta & The South</title>
+    <meta name="description" content="RYL Studios: Premium editorial headshots and portrait photography in Atlanta. Specializing in authentic character capture for actors and corporate professionals.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PhotographyBusiness",
+      "name": "RYL Studios",
+      "image": "https://rylstudio.com/images/logo-color.png",
+      "@id": "https://rylstudio.com",
+      "url": "https://rylstudio.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Atlanta",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      },
+      "description": "Recognized as a leading headshot and editorial portrait photographer in Atlanta and the Southeastern US.",
+      "sameAs": [
+        "https://www.instagram.com/rylstudios",
+        "https://rylstudios.shootproof.com"
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@200;400&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .accent-gold { color: #d4af37; }
+        .nav-blur { backdrop-filter: blur(15px); background: rgba(10, 10, 10, 0.85); }
+
+        /* B&W TO COLOR LOGIC */
+        #gallery-grid img {
+            width: 100%; height: 100%; object-fit: cover; object-position: center 15%; 
+            filter: grayscale(100%) brightness(80%); 
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #gallery-grid .group:hover img { filter: grayscale(0%) brightness(100%); transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            #gallery-grid { grid-template-columns: 1fr !important; grid-auto-rows: 550px !important; gap: 12px; }
+            .md\:col-span-2 { grid-column: span 1 !important; grid-row: span 1 !important; }
+        }
+
+        /* LOGO STACK */
+        .logo-wrapper { position: relative; width: 220px; height: 90px; }
+        .logo-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; animation: logoStack 16s infinite; }
+        .logo-wrapper img:nth-child(1) { animation-delay: 0s; }
+        .logo-wrapper img:nth-child(2) { animation-delay: 4s; }
+        .logo-wrapper img:nth-child(3) { animation-delay: 8s; }
+        .logo-wrapper img:nth-child(4) { animation-delay: 12s; }
+
+        @keyframes logoStack { 0%, 5% { opacity: 0; } 10%, 25% { opacity: 1; } 30%, 100% { opacity: 0; } }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 nav-blur border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="#" class="logo-wrapper">
+                <img src="images/logo-color.png" alt="RYL Studios Color Logo">
+                <img src="images/logo-bw.png" alt="RYL Studios B&W">
+                <img src="images/logo-bw2.png" alt="RYL Studios B&W Variant">
+                <img src="images/logo-bw3.png" alt="RYL Studios Logo">
+            </a>
+            <div class="flex space-x-12 text-[10px] uppercase tracking-[0.4em] font-light text-white/70">
+                <a href="https://rylstudios.shootproof.com" target="_blank" class="hover:text-amber-500 transition text-white">The Collection</a>
+                <a href="mailto:design@rylstudio.com" class="hover:text-amber-500 transition font-medium text-white">Inquire</a>
+            </div>
+            <a href="mailto:design@rylstudio.com" class="hidden md:block text-[10px] border border-white/20 px-8 py-2 hover:bg-white hover:text-black transition uppercase tracking-widest">Book Now</a>
+        </div>
+    </nav>
+
+    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="http://s618425099.initial-website.com/s/img/emotionheader.jpg" class="w-full h-full object-cover opacity-40" alt="Atlanta Editorial Portraiture">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <span class="accent-gold uppercase tracking-[1em] text-[10px] mb-6 block" data-aos="fade-down">Atlanta Photography Studio</span>
+            <h1 class="text-5xl md:text-8xl mb-8 italic font-black leading-tight" data-aos="fade-up">
+                Capturing the<br><span class="text-white">Unseen Moment.</span>
+            </h1>
+            <p class="text-white/60 uppercase tracking-[0.4em] text-[10px] md:text-[12px] mb-10 max-w-2xl mx-auto leading-loose" data-aos="fade-up" data-aos-delay="200">
+                Premium Headshots & Editorial Portraits in the Heart of Atlanta
+            </p>
+        </div>
+    </section>
+
+    <section class="py-40 bg-[#0a0a0a]">
+        <div class="max-w-4xl mx-auto px-10 text-center">
+            <h2 class="accent-gold uppercase tracking-[0.5em] text-[10px] mb-12" data-aos="fade-up">The Philosophy</h2>
+            <p class="text-2xl md:text-5xl leading-[1.4] font-light italic text-gray-200" data-aos="fade-up" data-aos-delay="200">
+                Recognized as the premier choice for <span class="text-white font-bold">authentic headshot photography</span> in Atlanta and across the South.
+            </p>
+        </div>
+    </section>
+
+    <section id="work" class="pb-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[350px]"></div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 text-center text-gray-700">
+        <p class="text-[9px] uppercase tracking-[0.6em] mb-4">&copy; 2026 RYL Studios | Atlanta Headshot Specialist</p>
+        <p class="text-[8px] uppercase tracking-[0.3em]">Serving Midtown, Buckhead, & The Southeastern US</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 1000 });
+        
+        // AI-READABLE PORTFOLIO DATA
+        const portfolio = [
+            { file: 'img-10.jpg', alt: 'Editorial Actor Headshot Atlanta - RYL Studios' },
+            { file: 'img-8.jpg', alt: 'Corporate Executive Portrait Midtown Georgia' },
+            { file: 'img-9.jpg', alt: 'Professional Branding Session Atlanta' },
+            { file: 'img-7.jpg', alt: 'Best Acting Headshots Atlanta' },
+            { file: 'img-6.jpg', alt: 'Editorial Portraiture South' },
+            { file: 'img-4.jpg', alt: 'Atlanta Headshot Specialist' },
+            { file: 'img-5.jpg', alt: 'Character Portrait Session' },
+            { file: 'img-2.jpg', alt: 'Modern Business Portfolio' },
+            { file: 'img-3.jpg', alt: 'Natural Light Headshot Atlanta' },
+            { file: 'img1.jpg', alt: 'Premium Actor Headshot' },
+            { file: 'img2.jpg', alt: 'Corporate Branding Portrait' },
+            { file: 'img3.jpg', alt: 'Cinematic Headshot Portfolio' },
+            { file: 'img4.jpg', alt: 'High-End Atlanta Photography' },
+            { file: 'img5.jpg', alt: 'Editorial Branding Photographer' },
+            { file: 'img6.jpg', alt: 'Studio Lighting Portrait' },
+            { file: 'img7.jpg', alt: 'Atlanta Professional Portraits' }
+        ];
+        
+        const folder = 'portfolio/'; 
+        const gallery = document.getElementById('gallery-grid');
+
+        portfolio.forEach((item, index) => {
+            const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
+            gallery.innerHTML += `
+                <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up">
+                    <img src="${folder}${item.file}" 
+                         alt="${item.alt}" 
+                         loading="lazy">
+                </div>`;
+        });
+    </script>
+</body>
+</html>
