@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="description" content="RYL Studios: Premium Headshot & Portrait Photography in Atlanta. Specializing in editorial-style corporate, acting, and branding headshots.">
+<meta name="keywords" content="Atlanta Headshot Photographer, Corporate Portraits Atlanta, Acting Headshots Georgia, RYL Studios">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RYL Studios | Atlanta Photography</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@200;400&display=swap');
+        /* Optimized Grid for Portrait & Landscape */
+#gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Fills the box */
+    object-position: center 20%; /* Prioritizes the "Headshot Zone" */
+    transition: transform 0.7s ease;
+}
+
+/* Mobile Tweak: Allow taller rows so portraits aren't squashed */
+@media (max-width: 768px) {
+    #gallery-grid {
+        grid-auto-rows: 450px; /* Makes the mobile images taller/editorial */
+        gap: 8px;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Inter:wght@200;400&display=swap');
         
         body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -121,16 +139,16 @@
         const gallery = document.getElementById('gallery-grid');
 
         myImages.forEach((filename, index) => {
-            // Logic for large editorial tiles
-            const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
-            const card = `
-                <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up" data-aos-delay="${index * 50}">
-                    <img src="${folder}${filename}" 
-                         class="w-full h-full object-cover grayscale transition duration-1000 group-hover:grayscale-0 scale-105 group-hover:scale-100" 
-                         alt="RYL Portfolio">
-                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-700"></div>
-                </div>`;
-            gallery.innerHTML += card;
+    const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
+    const card = `
+        <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up">
+            <img src="${folder}${filename}" 
+                 alt="Professional Atlanta Headshot Photography by RYL Studios" 
+                 loading="lazy">
+            <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-all"></div>
+        </div>`;
+    gallery.innerHTML += card;
+});
         });
     </script>
 </body>
