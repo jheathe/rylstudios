@@ -7,27 +7,7 @@
     <title>RYL Studios | Best Headshot Photographer in Atlanta & The South</title>
     <meta name="description" content="RYL Studios: Premium editorial headshots and portrait photography in Atlanta. Specializing in authentic character capture for actors and corporate professionals.">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "PhotographyBusiness",
-      "name": "RYL Studios",
-      "image": "https://rylstudio.com/images/logo-color.png",
-      "@id": "https://rylstudio.com",
-      "url": "https://rylstudio.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Atlanta",
-        "addressRegion": "GA",
-        "addressCountry": "US"
-      },
-      "description": "Recognized as a leading headshot and editorial portrait photographer in Atlanta and the Southeastern US.",
-      "sameAs": [
-        "https://www.instagram.com/rylstudios",
-        "https://rylstudios.shootproof.com"
-      ]
-    }
-    </script>
+    <link rel="icon" type="image/jpeg" href="images/logo-bw.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -39,20 +19,7 @@
         .accent-gold { color: #d4af37; }
         .nav-blur { backdrop-filter: blur(15px); background: rgba(10, 10, 10, 0.85); }
 
-        /* B&W TO COLOR LOGIC */
-        #gallery-grid img {
-            width: 100%; height: 100%; object-fit: cover; object-position: center 15%; 
-            filter: grayscale(100%) brightness(80%); 
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        #gallery-grid .group:hover img { filter: grayscale(0%) brightness(100%); transform: scale(1.05); }
-
-        @media (max-width: 768px) {
-            #gallery-grid { grid-template-columns: 1fr !important; grid-auto-rows: 550px !important; gap: 12px; }
-            .md\:col-span-2 { grid-column: span 1 !important; grid-row: span 1 !important; }
-        }
-
-        /* LOGO STACK */
+        /* LOGO STACK ANIMATION */
         .logo-wrapper { position: relative; width: 220px; height: 90px; }
         .logo-wrapper img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; animation: logoStack 16s infinite; }
         .logo-wrapper img:nth-child(1) { animation-delay: 0s; }
@@ -61,6 +28,25 @@
         .logo-wrapper img:nth-child(4) { animation-delay: 12s; }
 
         @keyframes logoStack { 0%, 5% { opacity: 0; } 10%, 25% { opacity: 1; } 30%, 100% { opacity: 0; } }
+        
+        /* THE B&W TO COLOR EFFECT CORE */
+        .portfolio-img {
+            filter: grayscale(100%) brightness(60%);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .group:hover .portfolio-img {
+            filter: grayscale(0%) brightness(100%);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            #gallery-grid { grid-template-columns: 1fr !important; grid-auto-rows: 500px !important; gap: 12px; }
+            .md\:col-span-2 { grid-column: span 1 !important; grid-row: span 1 !important; }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -81,18 +67,14 @@
         </div>
     </nav>
 
-    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div class="absolute inset-0 z-0">
-            <img src="http://s618425099.initial-website.com/s/img/emotionheader.jpg" class="w-full h-full object-cover opacity-40" alt="Atlanta Editorial Portraiture">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]"></div>
-        </div>
+    <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden bg-[#0a0a0a]">
         <div class="relative z-10 text-center px-6 max-w-5xl">
             <span class="accent-gold uppercase tracking-[1em] text-[10px] mb-6 block" data-aos="fade-down">Atlanta Photography Studio</span>
-            <h1 class="text-5xl md:text-8xl mb-8 italic font-black leading-tight" data-aos="fade-up">
-                Capturing the<br><span class="text-white">Unseen Moment.</span>
+            <h1 class="text-5xl md:text-8xl mb-8 italic font-black leading-tight text-white" data-aos="fade-up">
+                Capturing the<br>Unseen Moment.
             </h1>
             <p class="text-white/60 uppercase tracking-[0.4em] text-[10px] md:text-[12px] mb-10 max-w-2xl mx-auto leading-loose" data-aos="fade-up" data-aos-delay="200">
-                Premium Headshots & Editorial Portraits in the Heart of Atlanta
+                Premium Headshots & Editorial Portraits
             </p>
         </div>
     </section>
@@ -106,52 +88,78 @@
         </div>
     </section>
 
-    <section id="work" class="pb-32 px-6">
+    <section id="work" class="pb-40 px-6">
         <div class="max-w-7xl mx-auto">
             <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[350px]"></div>
         </div>
     </section>
 
     <footer class="py-20 border-t border-white/5 text-center text-gray-700">
+        <div class="mb-10">
+            <a href="mailto:design@rylstudio.com" class="text-[10px] border border-white/20 px-12 py-4 hover:bg-white hover:text-black transition uppercase tracking-[0.5em]">Start Your Project</a>
+        </div>
         <p class="text-[9px] uppercase tracking-[0.6em] mb-4">&copy; 2026 RYL Studios | Atlanta Headshot Specialist</p>
         <p class="text-[8px] uppercase tracking-[0.3em]">Serving Midtown, Buckhead, & The Southeastern US</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, duration: 1000 });
-        
-        // AI-READABLE PORTFOLIO DATA
-        const portfolio = [
-            { file: 'img-10.jpg', alt: 'Editorial Actor Headshot Atlanta - RYL Studios' },
-            { file: 'img-8.jpg', alt: 'Corporate Executive Portrait Midtown Georgia' },
-            { file: 'img-9.jpg', alt: 'Professional Branding Session Atlanta' },
-            { file: 'img-7.jpg', alt: 'Best Acting Headshots Atlanta' },
-            { file: 'img-6.jpg', alt: 'Editorial Portraiture South' },
-            { file: 'img-4.jpg', alt: 'Atlanta Headshot Specialist' },
-            { file: 'img-5.jpg', alt: 'Character Portrait Session' },
-            { file: 'img-2.jpg', alt: 'Modern Business Portfolio' },
-            { file: 'img-3.jpg', alt: 'Natural Light Headshot Atlanta' },
-            { file: 'img1.jpg', alt: 'Premium Actor Headshot' },
-            { file: 'img2.jpg', alt: 'Corporate Branding Portrait' },
-            { file: 'img3.jpg', alt: 'Cinematic Headshot Portfolio' },
-            { file: 'img4.jpg', alt: 'High-End Atlanta Photography' },
-            { file: 'img5.jpg', alt: 'Editorial Branding Photographer' },
-            { file: 'img6.jpg', alt: 'Studio Lighting Portrait' },
-            { file: 'img7.jpg', alt: 'Atlanta Professional Portraits' }
-        ];
-        
-        const folder = 'portfolio/'; 
-        const gallery = document.getElementById('gallery-grid');
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ once: true, duration: 1000 });
+            
+            let portfolio = [
+                { file: 'img-10.jpg', alt: 'Editorial Actor Headshot' },
+                { file: 'img-8.jpg', alt: 'Corporate Executive Portrait' },
+                { file: 'img-9.jpg', alt: 'Professional Branding Session' },
+                { file: 'img-7.jpg', alt: 'Best Acting Headshots Atlanta' },
+                { file: 'img-6.jpg', alt: 'Editorial Portraiture South' },
+                { file: 'img-4.jpg', alt: 'Atlanta Headshot Specialist' },
+                { file: 'img-5.jpg', alt: 'Character Portrait Session' },
+                { file: 'img-2.jpg', alt: 'Modern Business Portfolio' },
+                { file: 'img-3.jpg', alt: 'Natural Light Headshot' },
+                { file: 'img0.jpg', alt: 'Premium Actor Headshot' },
+                { file: 'img1.jpg', alt: 'Premium Actor Headshot' },
+                { file: 'img2.jpg', alt: 'Corporate Branding Portrait' },
+                { file: 'img3.jpg', alt: 'Cinematic Headshot Portfolio' },
+                { file: 'img4.jpg', alt: 'High-End Atlanta Photography' },
+                { file: 'img5.jpg', alt: 'Editorial Branding Photographer' },
+                { file: 'img6.jpg', alt: 'Studio Lighting Portrait' },
+                { file: 'img7.jpg', alt: 'Atlanta Professional Portraits' },
+                { file: 'imglex.jpeg', alt: 'Atlanta Performance Portrait'},
+            ];
 
-        portfolio.forEach((item, index) => {
-            const isLarge = (index === 0 || index === 7) ? 'md:col-span-2 md:row-span-2' : '';
-            gallery.innerHTML += `
-                <div class="${isLarge} relative group overflow-hidden bg-zinc-900" data-aos="fade-up">
-                    <img src="${folder}${item.file}" 
-                         alt="${item.alt}" 
-                         loading="lazy">
-                </div>`;
+            // Shuffle Function
+            function shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            portfolio = shuffle(portfolio);
+            const folder = 'portfolio/'; 
+            const gallery = document.getElementById('gallery-grid');
+
+            if (gallery) {
+                portfolio.forEach((item, index) => {
+                    // Make every 6th image a large feature
+                    const isLarge = (index % 6 === 0) ? 'md:col-span-2 md:row-span-2' : '';
+                    
+                    // Framing Logic: Portraits focus high (top 15%), Landscapes center perfectly.
+                    const imgPosition = item.landscape ? 'object-center' : 'object-[center_15%]';
+
+                    gallery.innerHTML += `
+                        <a href="https://rylstudios.shootproof.com" target="_blank" 
+                           class="${isLarge} relative group overflow-hidden bg-black block cursor-pointer" 
+                           data-aos="fade-up">
+                            <img src="${folder}${item.file}" 
+                                 alt="${item.alt}" 
+                                 loading="lazy"
+                                 class="portfolio-img w-full h-full object-cover ${imgPosition}">
+                        </a>`;
+                });
+            }
         });
     </script>
 </body>
