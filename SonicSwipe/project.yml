@@ -1,0 +1,41 @@
+# XcodeGen spec. Run `xcodegen generate` in this folder to create SonicSwipe.xcodeproj.
+# Docs: https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+name: SonicSwipe
+
+options:
+  bundleIdPrefix: com.rylstudios
+  createIntermediateGroups: true
+
+packages:
+  SonicSwipeCore:
+    path: Packages/SonicSwipeCore
+
+targets:
+  SonicSwipe:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: SonicSwipe
+    dependencies:
+      - package: SonicSwipeCore
+        product: SonicSwipeCore
+    info:
+      path: Config/Info.plist
+      properties:
+        CFBundleDisplayName: Sonic Swipe
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.rylstudios.SonicSwipe
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        # Set your Apple Developer Team in Xcode (Signing & Capabilities) or put the Team ID here.
+        DEVELOPMENT_TEAM: ""
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
